@@ -39,14 +39,12 @@ function RecipeRecommender() {
         classifier.addExample(tf.tensor(features), label);
       });
 
-      // OpenWeatherMap API 호출 (API 키는 실제 키로 변경해야 합니다)
-      const apiKey = "YOUR_API_KEY";
-      const city = "Seoul";
+      // OpenWeatherMap API 호출 
+      
       try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-        );
+        const response = await fetch("/proxy.php");
         const data = await response.json();
+        console.log(data);
         setCurrentTemperature(data.main.temp - 273.15);
 
         // 현재 기온 정보를 가져온 후에 getRecommendations 함수 호출
