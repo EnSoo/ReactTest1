@@ -57,7 +57,8 @@ function RecipeRecommender() {
     }
 
     loadModelAndTrain();
-  }, []); // 빈 배열을 넣어 컴포넌트가 처음 마운트될 때만 실행
+    // eslint-disable-next-line
+  }, []); 
 
   const classifyTemperature = (temperature) => {
     if (temperature < 15) return '추움';
